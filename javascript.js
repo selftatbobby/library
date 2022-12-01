@@ -20,8 +20,17 @@ function addBookToLibrary() {
     myLibrary.push(newBook)
 }
 
-// const book1 = new Book('kama sutra', 'buddha', 690, 'not read yet')
+function showLibrary () {
+    let bookCard = document.createElement('p');
+    bookCard.innerHTML = book1.title;
+    document.getElementById("bookshelf").appendChild(bookCard); 
+}
 
+
+const book1 = new Book('kama sutra', 'buddha', 690, 'not read yet')
+showLibrary();
 // console.log(book1.info())
-addBookToLibrary();
-console.log(myLibrary[0]);
+
+
+// addBookToLibrary();
+// console.log(myLibrary[0]);
