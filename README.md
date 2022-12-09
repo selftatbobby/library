@@ -4,6 +4,8 @@
 <!-- work on showLibrary() function, it works so far... -->
 <!-- work on looping through array -->
 Work on creating buttons
+    Create 'add book button' with popup sumbit form https://www.javascripttutorial.net/javascript-dom/javascript-form/
     Add a button on each book’s display to remove the book from the library.
     Add a button on each book’s display to change its read status.
+<!-- Work on grid parameters -->
 <!-- work on adding more books -->
