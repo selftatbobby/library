@@ -6,13 +6,32 @@ const book2 = new Book('bible', 'god', 690, 'did not read')
 const book3 = new Book('quran', 'allah', 690, 'did not read')
 const book4 = new Book('torah', 'yaweh', 690, 'did not read')
 const mynodelist = document.getElementById("bookshelf")
+const form  = document.getElementById('addbook')
 
+
+
+form.addEventListener('submit', (event) => {
+    // stop form submission
+    event.preventDefault();
+});
 myLibrary.push(book1);
 myLibrary.push(book2);
 myLibrary.push(book3);
 myLibrary.push(book4);
 
-
+function validateForm() {
+    let x = document.forms["addbook"]["booktitle"].value;
+    let y = document.forms["addbook"]["author"].value;
+    let z = document.forms["addbook"]["pages"].value;
+    let zz = document.forms["addbook"]["read_status"].value;
+    if (x == "" || y == "" || z == "" || zz == "") {
+        alert("Fill it out!");
+        return false;
+    }
+    else {
+        addBookToLibrary();
+    }
+}
 function Book(title, author, pages, bookRead) {
     this.title = title
     this.author = author
@@ -25,12 +44,16 @@ function Book(title, author, pages, bookRead) {
 }
 
 function addBookToLibrary() {
-    let newTitle = prompt("What's the title of book?")
-    let newAuthor = prompt("Provide author's full name:")
-    let newpages = prompt("How many pages?")
-    let newBookread = prompt("Did you 'read' or 'did not read'?")
-    let newBook = new Book(newTitle, newAuthor, newpages, newBookread)
+    let newTitle = form.elements['booktitle'].value;
+    let newAuthor = form.elements['author'].value;
+    let newPages = form.elements['pages'].value;
+    let newBookread = form.elements['read_status'].value;
+    let newBook = new Book(newTitle, newAuthor, newPages, newBookread)
     myLibrary.push(newBook)
+    console.log(newTitle);
+    console.log(newAuthor);
+    console.log(newPages);
+    console.log(newBookread);
 }
 
 
@@ -42,8 +65,6 @@ function showLibrary () {
         read.push(myLibrary[i]);
         myLibrary.splice(i, 1); 
         i--;
-        // console.log(myLibrary.length);
-        // console.log(read.length);
     }   
 }
 
@@ -59,7 +80,9 @@ btn_element.addEventListener("click", () => {
     // console.log(myLibrary.length);
 });
 
-let btn_element2 = document.getElementById("add_book");
+let btn_element2 = document.getElementById("bookbtn");
 btn_element2.addEventListener("click", () => {
-    addBookToLibrary();
+    validateForm();
 });
+
+
