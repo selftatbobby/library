@@ -10,29 +10,34 @@
     <div class="container">
         <div class="buttons">
             <button id ="library_display">Show All Books</button>
-
-            <form name = 'addbook' action="xxx.html" method="post" id="addbook">
-                <div class="field">
-                    <label for="title">Book Title:</label>
-                    <input type="text" id="booktitle" name="booktitle" placeholder="Enter the Book's Full Title">
+            <button class="openButton" onclick="openForm()">I want to add a book</button>
+            <div class="addbookPopup">
+                <div class="formPopup" id="popupForm">
+                    <form name='addbook' action="xxx.html" method="post" id="addbook">
+                        <div class="field">
+                            <label for="title">Book Title:</label>
+                            <input type="text" id="booktitle" name="booktitle" placeholder="Enter the Book's Full Title">
+                        </div>
+                        <div class="field">
+                            <label for="author">Author's Name:</label>
+                            <input type="text" id="author" name="author" placeholder="Enter the Author's fullname">
+                        </div>
+                        <div class="field">
+                            <label for="pages">Total Pages:</label>
+                            <input type="number" id="pages" name="pages" placeholder="Enter how many pages the book has" min = '1' max = '99999'>
+                        </div>
+                        <div class="field">
+                            <label for="name">Did you read the book?</label>
+                            <input type="radio" id="read_status" name="read_status" value="read">
+                            <label for="Read">Read</label><br>
+                            <input type="radio" id="read_status" name="read_status" value="did not read">
+                            <label for="didnotread">Did not read</label><br>
+                        </div>
+                        <button id="bookbtn">Add Book</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
                 </div>
-                <div class="field">
-                    <label for="author">Author's Name:</label>
-                    <input type="text" id="author" name="author" placeholder="Enter the Author's fullname">
-                </div>
-                <div class="field">
-                    <label for="pages">Total Pages:</label>
-                    <input type="number" id="pages" name="pages" placeholder="Enter how many pages the book has" min = '1' max = '99999'>
-                </div>
-                <div class="field">
-                    <label for="name">Did you read the book?</label>
-                    <input type="radio" id="read_status" name="read_status" value="read">
-                    <label for="Read">Read</label><br>
-                    <input type="radio" id="read_status" name="read_status" value="did not read">
-                    <label for="didnotread">Did not read</label><br>
-                </div>
-                <button id="bookbtn">Add Book</button>
-            </form>
+              </div>
         </div>
         <div id="bookshelf">
         </div>

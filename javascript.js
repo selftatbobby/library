@@ -5,7 +5,7 @@ const book1 = new Book('kama sutra', 'buddha', 690, 'did not read')
 const book2 = new Book('bible', 'god', 690, 'did not read')
 const book3 = new Book('quran', 'allah', 690, 'did not read')
 const book4 = new Book('torah', 'yaweh', 690, 'did not read')
-const mynodelist = document.getElementById("bookshelf")
+const bookshelfnodelist = document.getElementById("bookshelf")
 const form  = document.getElementById('addbook')
 
 
@@ -59,12 +59,24 @@ function addBookToLibrary() {
 
 function showLibrary () {
     for (let i = 0; i < myLibrary.length; i++) {
+        let bookDisplay = document.createElement('div');
+        bookDisplay.classList.add("book-display");
+        bookshelfnodelist.append(bookDisplay);
         let bookCard = document.createElement('p');
         bookCard.innerHTML = `I ${myLibrary[i].bookRead} the book called ${myLibrary[i].title}. It has ${myLibrary[i].pages} pages. Authored by ${myLibrary[i].author}.`;
-        document.getElementById("bookshelf").append(bookCard);
+        bookDisplay.append(bookCard);
+        
+        let statusButton = document.createElement('button');
+        let removeButton = document.createElement('button');
+        statusButton.innerHTML = 'Change read status';
+        removeButton.innerHTML = 'Remove book';
+        bookDisplay.append(statusButton);
+        bookDisplay.append(removeButton);
+
         read.push(myLibrary[i]);
         myLibrary.splice(i, 1); 
         i--;
+        console.log(bookshelfnodelist.children);
     }   
 }
 
@@ -73,7 +85,6 @@ let btn_element = document.getElementById("library_display");
 btn_element.addEventListener("click", () => {
     if (myLibrary.length > 0) {
         showLibrary();
-        // console.log(mynodelist.children.length);
     }
     else return
     
@@ -85,4 +96,10 @@ btn_element2.addEventListener("click", () => {
     validateForm();
 });
 
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
 
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}

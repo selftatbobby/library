@@ -5,16 +5,27 @@
 
 
 #bookshelf {
-    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 300px;
 }
 
-#bookshelf > p{
+.book-display{
     border:2px solid blue;
 }
 
 .field {
     display: flex;
+}
+
+.addbookPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.formPopup {
+    display: none;
+    border: 3px solid #999999;
+  
 }
