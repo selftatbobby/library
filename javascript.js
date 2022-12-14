@@ -19,6 +19,15 @@ myLibrary.push(book2);
 myLibrary.push(book3);
 myLibrary.push(book4);
 
+
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+
 function validateForm() {
     let x = document.forms["addbook"]["booktitle"].value;
     let y = document.forms["addbook"]["author"].value;
@@ -50,14 +59,14 @@ function addBookToLibrary() {
     let newBookread = form.elements['read_status'].value;
     let newBook = new Book(newTitle, newAuthor, newPages, newBookread)
     myLibrary.push(newBook)
-    console.log(newTitle);
-    console.log(newAuthor);
-    console.log(newPages);
-    console.log(newBookread);
+    // console.log(newTitle);
+    // console.log(newAuthor);
+    // console.log(newPages);
+    // console.log(newBookread);
 }
 
 
-function showLibrary () {
+function showLibrary() {
     for (let i = 0; i < myLibrary.length; i++) {
         let bookDisplay = document.createElement('div');
         bookDisplay.classList.add("book-display");
@@ -76,10 +85,18 @@ function showLibrary () {
         read.push(myLibrary[i]);
         myLibrary.splice(i, 1); 
         i--;
-        console.log(bookshelfnodelist.children);
+        // console.log(bookshelfnodelist.children);
     }   
 }
 
+function removeBook(){
+    //remove bookdisplay div
+    //append back to myLibrary from read
+}
+
+function toggleStatus(){
+    //toggles CSS class
+}
 /****************************Buttons**************************/
 let btn_element = document.getElementById("library_display");
 btn_element.addEventListener("click", () => {
@@ -87,7 +104,6 @@ btn_element.addEventListener("click", () => {
         showLibrary();
     }
     else return
-    
     // console.log(myLibrary.length);
 });
 
@@ -95,11 +111,3 @@ let btn_element2 = document.getElementById("bookbtn");
 btn_element2.addEventListener("click", () => {
     validateForm();
 });
-
-function openForm() {
-    document.getElementById("popupForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("popupForm").style.display = "none";
-}
