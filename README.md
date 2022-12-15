@@ -10,6 +10,6 @@ Work on creating buttons
         <!-- link form to creating Book object -->
     Add a button on each book’s display to remove the book from the library.
         when book added to display, it creates a div with buttons for toggling each book’s display to change its read status, and another button for removing it from the display
-        
+        -work on indexing issue with myLibrary and the element object bookshelfnodelist
 <!-- Work on grid parameters -->
 <!-- work on adding more books -->

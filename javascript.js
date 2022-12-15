@@ -79,17 +79,21 @@ function showLibrary() {
         let removeButton = document.createElement('button');
         statusButton.innerHTML = 'Change read status';
         removeButton.innerHTML = 'Remove book';
+        removeButton.addEventListener("click", () => {
+            removeBook();
+        });
         bookDisplay.append(statusButton);
         bookDisplay.append(removeButton);
 
         read.push(myLibrary[i]);
         myLibrary.splice(i, 1); 
         i--;
-        // console.log(bookshelfnodelist.children);
+        console.log(bookshelfnodelist.childNodes);
     }   
 }
 
 function removeBook(){
+    console.log(bookshelfnodelist.children[0]);
     //remove bookdisplay div
     //append back to myLibrary from read
 }
