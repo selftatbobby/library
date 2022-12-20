@@ -8,8 +8,10 @@ Work on creating buttons
         <!-- Make it popup with CSS -->
         <!-- Add some form validation: ie empty fields -->
         <!-- link form to creating Book object -->
-    Add a button on each book’s display to remove the book from the library.
-        when book added to display, it creates a div with buttons for toggling each book’s display to change its read status, and another button for removing it from the display
-        -work on indexing issue with myLibrary and the element object bookshelfnodelist
+    <!-- Add a button on each book’s display to remove the book from the library. -->
+        <!-- when book added to display, it creates a div with buttons for toggling each book’s display to change its read status -->
+        <!-- , and another button for removing it from the display -->
+        <!-- -work on indexing issue with myLibrary and the element object bookshelfnodelist -->
+        <!-- Indexing issue partially solved. Now create new function to remove objects from myLibrary -->
 <!-- Work on grid parameters -->
 <!-- work on adding more books -->

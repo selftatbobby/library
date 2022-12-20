@@ -65,11 +65,20 @@ function addBookToLibrary() {
     // console.log(newBookread);
 }
 
-
+function bookTransfer(){
+    for (let i = 0; i < myLibrary.length; i++) {
+        read.push(myLibrary[i]);
+        myLibrary.splice(i, 1); 
+        i--;
+    }
+        
+}
 function showLibrary() {
     for (let i = 0; i < myLibrary.length; i++) {
         let bookDisplay = document.createElement('div');
         bookDisplay.classList.add("book-display");
+        bookDisplay.classList.add("book-display1");
+        bookDisplay.id = `bookdisplay${i}`;
         bookshelfnodelist.append(bookDisplay);
         let bookCard = document.createElement('p');
         bookCard.innerHTML = `I ${myLibrary[i].bookRead} the book called ${myLibrary[i].title}. It has ${myLibrary[i].pages} pages. Authored by ${myLibrary[i].author}.`;
@@ -77,35 +86,43 @@ function showLibrary() {
         
         let statusButton = document.createElement('button');
         let removeButton = document.createElement('button');
-        statusButton.innerHTML = 'Change read status';
-        removeButton.innerHTML = 'Remove book';
+        statusButton.innerHTML = "Change book's read status";
+        removeButton.innerHTML = "Remove book from library";
         removeButton.addEventListener("click", () => {
-            removeBook();
+            removeBook(i);
+        });
+        statusButton.addEventListener("click", () => {
+            toggleStatus(i);
         });
         bookDisplay.append(statusButton);
         bookDisplay.append(removeButton);
 
-        read.push(myLibrary[i]);
-        myLibrary.splice(i, 1); 
-        i--;
-        console.log(bookshelfnodelist.childNodes);
+        // read.push(myLibrary[i]);
+        // myLibrary.splice(i, 1); 
+        // i--;
+        // console.log(read);
+        // console.log(myLibrary);  
     }   
 }
 
-function removeBook(){
-    console.log(bookshelfnodelist.children[0]);
+function removeBook(i){
+    document.getElementById(`bookdisplay${i}`).remove();
+    //console.log(bookshelfnodelist.children[i]);
+    //bookshelfnodelist.children[i].remove();
     //remove bookdisplay div
     //append back to myLibrary from read
 }
 
-function toggleStatus(){
+function toggleStatus(i) {
     //toggles CSS class
+    document.getElementById(`bookdisplay${i}`).classList.toggle("book-display");
 }
 /****************************Buttons**************************/
 let btn_element = document.getElementById("library_display");
 btn_element.addEventListener("click", () => {
     if (myLibrary.length > 0) {
         showLibrary();
+        bookTransfer();
     }
     else return
     // console.log(myLibrary.length);
