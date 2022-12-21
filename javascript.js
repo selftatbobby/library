@@ -81,7 +81,7 @@ function showLibrary() {
         bookDisplay.id = `bookdisplay${i}`;
         bookshelfnodelist.append(bookDisplay);
         let bookCard = document.createElement('p');
-        bookCard.innerHTML = `I ${myLibrary[i].bookRead} the book called ${myLibrary[i].title}. It has ${myLibrary[i].pages} pages. Authored by ${myLibrary[i].author}.`;
+        bookCard.innerHTML = `I ${myLibrary[i].bookRead} the book called "${myLibrary[i].title}". It has ${myLibrary[i].pages} pages. Authored by ${myLibrary[i].author}.`;
         bookDisplay.append(bookCard);
         
         let statusButton = document.createElement('button');
