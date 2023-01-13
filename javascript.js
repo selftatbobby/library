@@ -1,3 +1,13 @@
+class Book {
+    constructor(title, author, pages, bookRead) {
+      this.title = title;
+      this.author = author;
+      this.pages = pages
+      this.bookRead = bookRead
+    }
+  }
+
+
 let myLibrary = [];
 let read = [];
 let notread = []
@@ -41,16 +51,7 @@ function validateForm() {
         addBookToLibrary();
     }
 }
-function Book(title, author, pages, bookRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.bookRead = bookRead
-    this.info = function() {
-        // console.log(title+', by '+author+', '+pages+' pages, '+bookRead)
-        return (title+', by '+author+', '+pages+' pages, '+bookRead)
-    }
-}
+
 
 function addBookToLibrary() {
     let newTitle = form.elements['booktitle'].value;
@@ -59,10 +60,6 @@ function addBookToLibrary() {
     let newBookread = form.elements['read_status'].value;
     let newBook = new Book(newTitle, newAuthor, newPages, newBookread)
     myLibrary.push(newBook)
-    // console.log(newTitle);
-    // console.log(newAuthor);
-    // console.log(newPages);
-    // console.log(newBookread);
 }
 
 function bookTransfer(){
@@ -97,20 +94,11 @@ function showLibrary() {
         bookDisplay.append(statusButton);
         bookDisplay.append(removeButton);
 
-        // read.push(myLibrary[i]);
-        // myLibrary.splice(i, 1); 
-        // i--;
-        // console.log(read);
-        // console.log(myLibrary);  
     }   
 }
 
 function removeBook(i){
     document.getElementById(`bookdisplay${i}`).remove();
-    //console.log(bookshelfnodelist.children[i]);
-    //bookshelfnodelist.children[i].remove();
-    //remove bookdisplay div
-    //append back to myLibrary from read
 }
 
 function toggleStatus(i) {
@@ -125,7 +113,6 @@ btn_element.addEventListener("click", () => {
         bookTransfer();
     }
     else return
-    // console.log(myLibrary.length);
 });
 
 let btn_element2 = document.getElementById("bookbtn");
